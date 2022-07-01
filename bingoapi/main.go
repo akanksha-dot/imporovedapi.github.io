@@ -1,7 +1,6 @@
 package main
 
 import (
-	"context"
 	"database/sql"
 
 	"encoding/json"
@@ -17,10 +16,8 @@ import (
 
 var db *sql.DB
 
-var ctx context.Context
-
 func getMYSQLDB() *sql.DB {
-	db, err := sql.Open("mysql", "root:suspiciouscoder19@/country")
+	db, err := sql.Open("mysql", "root:suspiciouscoder19@(127.0.0.1:3306)/country")
 	_ = err
 
 	if err := db.PingContext(ctx); err != nil {
